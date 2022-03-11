@@ -7,6 +7,9 @@ let gentwoButton = document.getElementById("gentwo");
 let genthreeButton = document.getElementById("genthree");
 let leftInfo = document.querySelector(".leftbox");
 let rightInfo = document.querySelector(".rightbox");
+let leftPhoto = document.querySelector(".leftimage");
+let rightphoto = document.querySelector(".rightimage");
+
 console.log(leftInfo.innerText)
 // sidebarIdTracker = [];
 // console.log(sidebarIdTracker)
@@ -55,10 +58,10 @@ function renderSprites(data) {
       if (data.id == sprt.name) {
         console.log(data.id)
         console.log(sprt.name)
-        console.log(data)
+        console.log(data.sprites)
         spotlightPokemon.src = data.sprites.front_default
-        console.log(leftInfo.innerText)
-        // leftInfo.innerText = data
+        leftPhoto.src = data.sprites.other.dream_world.front_default
+        rightphoto.src = data.sprites.other.dream_world.front_default
         function chgback() {
           if (data.types[0].type.name == "grass") {
             document.body.style.backgroundColor = "#20b49c";
