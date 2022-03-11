@@ -89,7 +89,7 @@ gentwoButton.addEventListener("click", function () {
 genthreeButton.addEventListener("click", function () {
   console.log("heres gen 2!")
   reset()
-  getPokemon(255);
+  getPokemon(252);
   
   
 }) 
