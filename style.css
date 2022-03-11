@@ -39,10 +39,6 @@
   margin: 5px 0px;
 }
 
-body {
-  background-color: white;
-}
-
 .container {
   display: flex;
   flex-direction: row;
@@ -106,6 +102,12 @@ li {
   height: 500px;
   width: 500px;
   border-radius: 360%;
+  animation: rotation 100000ms infinite linear;
+  box-shadow: 10px 10px 5px rgb(14, 14, 14);
+  -moz-box-shadow: 10px 10px 5px rgb(29, 28, 28);
+  -webkit-box-shadow: 10px 10px 5px rgb(18, 17, 17);
+  -khtml-box-shadow: 10px 10px 5px rgb(14, 13, 13);
+  border-radius: 1000px;
 }
 #pokeMon {
   display: flex;
@@ -124,11 +126,5 @@ img.pokePhoto {
   margin: 10%;
 }
 
-.spinball {
-  animation: rotation 100000ms infinite linear;
-  box-shadow: 10px 10px 5px #ccc;
-  -moz-box-shadow: 10px 10px 5px #ccc;
-  -webkit-box-shadow: 10px 10px 5px #ccc;
-  -khtml-box-shadow: 10px 10px 5px #ccc;
-  border-radius: 1000px;
+body {
 }

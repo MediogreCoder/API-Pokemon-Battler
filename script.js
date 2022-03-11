@@ -4,6 +4,7 @@ let spotlightPokemon = document.querySelector(".pokePhoto")
 let spriteContainer = document.querySelector(".pokemons")
 
 
+
 // sidebarIdTracker = [];
 // console.log(sidebarIdTracker)
 
@@ -26,6 +27,7 @@ function getPokemon(n) {
     fetch(`https://pokeapi.co/api/v2/pokemon/${i}`)
       .then(res => res.json())
       .then(result => {
+        // console.log(result)
         renderSprites(result)
       })
   } 
@@ -46,12 +48,27 @@ function renderSprites(data) {
   sprites.forEach((sprt) => {
     sprt.addEventListener("click", () => {
       if (data.id == sprt.name) {
+        console.log(data.id)
+        console.log(sprt.name)
+        console.log(data.types[0].type.name)
         spotlightPokemon.src = data.sprites.front_default
+        function chgback() {
+          if (data.types[0].type.name == "grass") {
+            document.body.style.backgroundColor = "#3F9490";
+          }
+          else if (data.types[0].type.name == "fire") {
+            document.body.style.backgroundColor = "#ee8328";
+          }
+          else if (data.types[0].type.name == "water" ){
+            document.body.style.backgroundColor = "#84ADD7";
+          }
+        }
+        chgback();
       }
+     
     })
   })
 }
-
 
 // sidePokename[i].addEventListener("click", function () {
 //     let numGrabs2 = i;
