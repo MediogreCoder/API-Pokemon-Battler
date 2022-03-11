@@ -2,8 +2,9 @@ let sideBarPokes = document.querySelectorAll(".spriteimgs");
 let sidePokename = document.querySelectorAll(".pokeList");
 let spotlightPokemon = document.querySelector(".pokePhoto");
 let spriteContainer = document.querySelector(".pokemons");
-let genButtons = document.getElementsByClassName("gen");
-
+let genoneButton = document.getElementById("genone");
+let gentwoButton = document.getElementById("gentwo");
+let genthreeButton = document.getElementById("genthree");
 
 // sidebarIdTracker = [];
 // console.log(sidebarIdTracker)
@@ -32,7 +33,7 @@ function getPokemon(n) {
       })
   } 
 }
-getPokemon(1)
+
 
 function renderSprites(data) {
   let sprite = `
@@ -70,12 +71,33 @@ function renderSprites(data) {
   })
 }
 
-console.log(genButtons)
 
-genButtons.addEventListener("click", function () {
-  getPokemon(255);
+genoneButton.addEventListener("click", function () {
+  console.log("heres gen 2!")
+  reset()
+  getPokemon(1);
+ 
 }) 
 
+gentwoButton.addEventListener("click", function () {
+  console.log("heres gen 2!")
+  reset()
+  getPokemon(152);
+ 
+}) 
+
+genthreeButton.addEventListener("click", function () {
+  console.log("heres gen 2!")
+  reset()
+  getPokemon(255);
+  
+  
+}) 
+
+function reset() {
+  document.querySelector('.pokemons').innerHTML= '';
+} 
+  
 
 // sidePokename[i].addEventListener("click", function () {
 //     let numGrabs2 = i;

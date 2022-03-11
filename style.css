@@ -136,7 +136,7 @@ body {
   justify-content: space-between;
 }
 
-.gen {
+button {
   background-color: #222;
   border-radius: 10px;
   border-style: none;
@@ -161,7 +161,7 @@ body {
   width: 80%;
 }
 
-.gen:hover,
-.gen:focus {
+button:hover,
+button:focus {
   opacity: 0.75;
 }
