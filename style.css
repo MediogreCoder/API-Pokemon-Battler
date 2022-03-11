@@ -11,6 +11,7 @@
   background: black;
   left: -200px;
   z-index: 100;
+  font-weight: bold;
 }
 
 #sidebar.unhide {
@@ -47,28 +48,27 @@ body {
   flex-direction: row;
   justify-content: center;
 }
-.maincontainer {
-  align-items: center;
-  position: relative;
-}
 
-.backdrop {
-  position: relative;
-  z-index: 1;
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
 }
 
 p {
   text-align: center;
 }
 
-.frontdrop {
-  position: absolute;
-  z-index: 2;
-}
-
 #logo-title {
   right: 0px;
   padding-bottom: 100px;
+}
+
+.pokelist {
+  font-weight: bold;
 }
 
 .spriteimgs {
@@ -77,8 +77,58 @@ p {
   height: 75px;
 }
 
+.spriteimgs:hover {
+  background-size: 0 3px, 100% 3px;
+  transform: scale(2);
+  transition-duration: 1s;
+}
+
 li {
   display: flex;
   align-items: center;
   font-style: none;
+}
+
+#backdrop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+#pokeall {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  background-image: url(/pokeballcrop.png);
+  background-size: cover;
+  height: 500px;
+  width: 500px;
+  border-radius: 360%;
+}
+#pokeMon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  margin: 10%;
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+img.pokePhoto {
+  display: flex;
+  position: relative;
+  width: 50%;
+  margin: 10%;
+}
+
+.spinball {
+  animation: rotation 100000ms infinite linear;
+  box-shadow: 10px 10px 5px #ccc;
+  -moz-box-shadow: 10px 10px 5px #ccc;
+  -webkit-box-shadow: 10px 10px 5px #ccc;
+  -khtml-box-shadow: 10px 10px 5px #ccc;
+  border-radius: 1000px;
 }
