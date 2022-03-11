@@ -1,8 +1,8 @@
 let sideBarPokes = document.querySelectorAll(".spriteimgs");
 let sidePokename = document.querySelectorAll(".pokeList");
-let spotlightPokemon = document.querySelector(".pokePhoto")
-let spriteContainer = document.querySelector(".pokemons")
-
+let spotlightPokemon = document.querySelector(".pokePhoto");
+let spriteContainer = document.querySelector(".pokemons");
+let genButtons = document.getElementsByClassName("gen");
 
 
 // sidebarIdTracker = [];
@@ -23,7 +23,7 @@ let spriteContainer = document.querySelector(".pokemons")
 // } 
 
 function getPokemon(n) {
-  for (let i = 1; i <= n; i++) {
+  for (let i = n; i <= n + 9 ; i++) {
     fetch(`https://pokeapi.co/api/v2/pokemon/${i}`)
       .then(res => res.json())
       .then(result => {
@@ -32,7 +32,7 @@ function getPokemon(n) {
       })
   } 
 }
-getPokemon(9)
+getPokemon(1)
 
 function renderSprites(data) {
   let sprite = `
@@ -54,7 +54,7 @@ function renderSprites(data) {
         spotlightPokemon.src = data.sprites.front_default
         function chgback() {
           if (data.types[0].type.name == "grass") {
-            document.body.style.backgroundColor = "#3F9490";
+            document.body.style.backgroundColor = "#20b49c";
           }
           else if (data.types[0].type.name == "fire") {
             document.body.style.backgroundColor = "#ee8328";
@@ -69,6 +69,13 @@ function renderSprites(data) {
     })
   })
 }
+
+console.log(genButtons)
+
+genButtons.addEventListener("click", function () {
+  getPokemon(255);
+}) 
+
 
 // sidePokename[i].addEventListener("click", function () {
 //     let numGrabs2 = i;
