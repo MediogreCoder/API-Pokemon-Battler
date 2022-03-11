@@ -5,7 +5,9 @@ let spriteContainer = document.querySelector(".pokemons");
 let genoneButton = document.getElementById("genone");
 let gentwoButton = document.getElementById("gentwo");
 let genthreeButton = document.getElementById("genthree");
-
+let leftInfo = document.querySelector(".leftbox");
+let rightInfo = document.querySelector(".rightbox");
+console.log(leftInfo.innerText)
 // sidebarIdTracker = [];
 // console.log(sidebarIdTracker)
 
@@ -34,6 +36,8 @@ function getPokemon(n) {
   } 
 }
 
+getPokemon(1)
+
 
 function renderSprites(data) {
   let sprite = `
@@ -51,8 +55,10 @@ function renderSprites(data) {
       if (data.id == sprt.name) {
         console.log(data.id)
         console.log(sprt.name)
-        console.log(data.types[0].type.name)
+        console.log(data)
         spotlightPokemon.src = data.sprites.front_default
+        console.log(leftInfo.innerText)
+        // leftInfo.innerText = data
         function chgback() {
           if (data.types[0].type.name == "grass") {
             document.body.style.backgroundColor = "#20b49c";
