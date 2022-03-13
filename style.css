@@ -12,6 +12,7 @@
   left: -200px;
   z-index: 100;
   font-weight: bold;
+  transition: all 500ms linear;
 }
 
 #sidebar.unhide {
@@ -41,6 +42,11 @@
   height: 5px;
   background: #151719;
   margin: 5px 0px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px rgb(14, 14, 14);
+  -moz-box-shadow: 1px 1px 1px rgb(29, 28, 28);
+  -webkit-box-shadow: 1px 1px 1px rgb(18, 17, 17);
+  -khtml-box-shadow: 1px 1px 1px rgb(14, 13, 13);
 }
 
 .container {
@@ -109,13 +115,18 @@ li {
   height: 500px;
   width: 500px;
   border-radius: 360%;
-  animation: rotation 100000ms infinite linear;
+  animation: rotation 100s infinite linear;
   box-shadow: 10px 10px 5px rgb(14, 14, 14);
   -moz-box-shadow: 10px 10px 5px rgb(29, 28, 28);
   -webkit-box-shadow: 10px 10px 5px rgb(18, 17, 17);
   -khtml-box-shadow: 10px 10px 5px rgb(14, 13, 13);
   border-radius: 1000px;
 }
+
+#pokeall:hover {
+  animation: rotation 10s infinite linear;
+}
+
 #pokeMon {
   display: flex;
   justify-content: center;
@@ -155,17 +166,12 @@ button {
   font-size: 14px;
   font-weight: 700;
   line-height: 1.5;
-  max-width: none;
   outline: none;
   overflow: hidden;
   padding: 9px 20px 8px;
   position: relative;
   text-align: center;
-  text-transform: none;
   user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  width: 80%;
 }
 
 button:hover {
@@ -224,5 +230,5 @@ button:hover {
 .rightimage {
   height: 450px;
   position: relative;
-  top: -150px;
+  top: -140px;
 }

@@ -60,9 +60,9 @@ function renderSprites(data) {
       if (data.id == sprt.name) {
         console.log(data.id)
         console.log(sprt.name)
-        console.log(data.sprites)
+        console.log(data)
         spotlightPokemon.src = data.sprites.front_default
-        leftPhoto.src = data.sprites.other.dream_world.front_default
+        leftPhoto.src = data.sprites.other["official-artwork"].front_default
         rightPhoto.src = data.sprites.other.home.front_default
         function chgback() {
           if (data.types[0].type.name == "grass") {
