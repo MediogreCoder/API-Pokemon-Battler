@@ -5,10 +5,11 @@ let spriteContainer = document.querySelector(".pokemons");
 let genoneButton = document.getElementById("genone");
 let gentwoButton = document.getElementById("gentwo");
 let genthreeButton = document.getElementById("genthree");
+let randoButton = document.getElementById("random");
 let leftInfo = document.querySelector(".leftbox");
 let rightInfo = document.querySelector(".rightbox");
 let leftPhoto = document.querySelector(".leftimage");
-let rightphoto = document.querySelector(".rightimage");
+let rightPhoto = document.querySelector(".rightimage");
 
 console.log(leftInfo.innerText)
 // sidebarIdTracker = [];
@@ -43,7 +44,8 @@ getPokemon(1)
 
 
 function renderSprites(data) {
-  let sprite = `
+  let sprite = 
+  `
     <li>
       <a class="pokeList">${data.name}</a>
       <img src="${data.sprites.front_default}" class="spriteimgs" name="${data.id}">
@@ -61,7 +63,7 @@ function renderSprites(data) {
         console.log(data.sprites)
         spotlightPokemon.src = data.sprites.front_default
         leftPhoto.src = data.sprites.other.dream_world.front_default
-        rightphoto.src = data.sprites.other.dream_world.front_default
+        rightPhoto.src = data.sprites.other.home.front_default
         function chgback() {
           if (data.types[0].type.name == "grass") {
             document.body.style.backgroundColor = "#20b49c";
@@ -82,7 +84,7 @@ function renderSprites(data) {
 
 
 genoneButton.addEventListener("click", function () {
-  console.log("heres gen 2!")
+  console.log("heres gen 1!")
   reset()
   getPokemon(1);
  
@@ -96,12 +98,28 @@ gentwoButton.addEventListener("click", function () {
 }) 
 
 genthreeButton.addEventListener("click", function () {
-  console.log("heres gen 2!")
+  console.log("heres gen 3!")
   reset()
   getPokemon(252);
   
+
   
 }) 
+
+
+
+randoButton.addEventListener("click", function () {
+    console.log("heres random!")
+  reset()
+  console.log(randomNumber(1, 881));
+  getPokemon(randomNumber(1, 881));
+
+
+})
+
+function randomNumber(min, max) {
+  return Math.floor(Math.random() * (max-min) + min);
+}
 
 function reset() {
   document.querySelector('.pokemons').innerHTML= '';

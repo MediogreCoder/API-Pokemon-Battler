@@ -190,12 +190,12 @@ button:hover {
 }
 
 .bottomleftbox {
+  display: flex;
+  justify-content: center;
   background-color: white;
   height: 300px;
   width: 200px;
   border: 3px solid black;
-  align-items: center;
-  justify-content: center;
   box-shadow: 3px 3px 3px rgb(14, 14, 14);
   -moz-box-shadow: 3px 3px 3px rgb(29, 28, 28);
   -webkit-box-shadow: 3px 3px 3px rgb(18, 17, 17);
@@ -203,14 +203,26 @@ button:hover {
 }
 
 .bottomrightbox {
+  display: flex;
+  justify-content: center;
   background-color: white;
   height: 300px;
   width: 200px;
   border: 3px solid black;
-  align-items: center;
-  justify-content: center;
   box-shadow: 3px 3px 3px rgb(14, 14, 14);
   -moz-box-shadow: 3px 3px 3px rgb(29, 28, 28);
   -webkit-box-shadow: 3px 3px 3px rgb(18, 17, 17);
   -khtml-box-shadow: 3px 3px 3px rgb(14, 13, 13);
+}
+
+.leftimage {
+  height: 400px;
+  position: relative;
+  top: -80px;
+}
+
+.rightimage {
+  height: 450px;
+  position: relative;
+  top: -150px;
 }
