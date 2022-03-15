@@ -49,6 +49,51 @@
   -khtml-box-shadow: 1px 1px 1px rgb(14, 13, 13);
 }
 
+#sidebar2 {
+  position: fixed;
+  width: 200px;
+  height: 100%;
+  background: black;
+  right: -200px;
+  z-index: 100;
+  font-weight: bold;
+  transition: all 500ms linear;
+}
+
+#sidebar2.unhide {
+  right: 0px;
+  box-shadow: 3px 3px 3px rgb(14, 14, 14);
+  -moz-box-shadow: 3px 3px 3px rgb(29, 28, 28);
+  -webkit-box-shadow: 3px 3px 3px rgb(18, 17, 17);
+  -khtml-box-shadow: 3px 3px 3px rgb(14, 13, 13);
+}
+
+#sidebar2 ul li {
+  color: rgba(230, 230, 230, 0.9);
+  list-style: none;
+  padding: 15px 10px;
+  border-bottom: 1px solid rgba(100, 100, 100, 0.3);
+}
+
+#sidebar2 .toggle-btn {
+  position: absolute;
+  left: 230px;
+  top: 30px;
+}
+
+#sidebar2 .toggle-btn span {
+  display: block;
+  width: 30px;
+  height: 5px;
+  background: #151719;
+  margin: 5px 0px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px rgb(14, 14, 14);
+  -moz-box-shadow: 1px 1px 1px rgb(29, 28, 28);
+  -webkit-box-shadow: 1px 1px 1px rgb(18, 17, 17);
+  -khtml-box-shadow: 1px 1px 1px rgb(14, 13, 13);
+}
+
 .container {
   display: flex;
   flex-direction: row;
@@ -123,29 +168,34 @@ li {
   border-radius: 1000px;
 }
 
-#pokeall:hover {
-  animation: rotation 10s infinite linear;
-}
-
 #pokeMon {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 100%;
+  width: 200%;
+  height: 200%;
   margin: 10%;
   margin-top: 10%;
   margin-bottom: 10%;
 }
-img.pokePhoto {
+img.pokePhotoOne {
   display: flex;
   position: relative;
-  width: 50%;
-  margin: 10%;
+  right: -100px;
+  height: 200px;
+  width: 200px;
+}
+img.pokePhotoTwo {
+  display: flex;
+  position: relative;
+  left: -100px;
+  height: 200px;
+  width: 200px;
 }
 
 body {
   font-family: Courier;
+  background-image: url("z7_wYb9-YSvt0pDJlDIu8iuK_aWdqZPg0wvrGdwNvBw.png");
 }
 
 .buttonsection {
@@ -221,14 +271,42 @@ button:hover {
   -khtml-box-shadow: 3px 3px 3px rgb(14, 13, 13);
 }
 
-.leftimage {
+.leftImage {
   height: 400px;
   position: relative;
   top: -80px;
 }
 
-.rightimage {
-  height: 450px;
+.rightImage {
+  height: 400px;
   position: relative;
-  top: -140px;
+  top: -80px;
+}
+
+p {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.p1title {
+  position: relative;
+  bottom: -170px;
+  color: white;
+  font-size: 30px;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: black;
+}
+
+.p2title {
+  position: relative;
+  bottom: -170px;
+  color: white;
+  font-size: 30px;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: black;
+}
+
+#battleCenter {
+  height: 350px;
+  width: 350px;
 }
