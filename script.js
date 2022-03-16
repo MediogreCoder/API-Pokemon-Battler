@@ -1,7 +1,8 @@
 let sideBarPokes = document.querySelectorAll(".spriteimgs");
+let bigPokeBall = document.getElementById("pokeall");
 let sidePokename = document.querySelectorAll(".pokeList");
-let spotlightPokemonOne = document.querySelector(".pokePhotoOne");
-let spotlightPokemonTwo = document.querySelector(".pokePhotoTwo");
+let spotlightPokemonOne = document.querySelector("#p1p");
+let spotlightPokemonTwo = document.querySelector("#p2p");
 // let spriteContainer = document.querySelectorAll(".pokemons");
 let spriteContainerOne = document.querySelectorAll(".pokemonsOne");
 let spriteContainerTwo = document.querySelectorAll(".pokemonsTwo");
@@ -13,11 +14,10 @@ let leftInfo = document.querySelector(".leftbox");
 let pokeInfo = document.querySelector(".bottomrightbox");
 let leftPhoto = document.querySelector(".leftImage");
 let rightPhoto = document.querySelector(".rightImage");
-let battleIcon = document.querySelector("#battleCenter")
+let battleIcon = document.querySelector("#centerIcon")
 let playerOneBattleCondition = 0;
 let playerTwoBattleCondition = 0;
-console.log(playerOneBattleCondition, playerTwoBattleCondition)
-console.log(battleIcon)
+console.log(bigPokeBall)
 
 
 // sidebarIdTracker = [];
@@ -130,7 +130,9 @@ function renderSpritesOne(data) {
         console.log(e.name)
         console.log(data)
         spotlightPokemonOne.src = data.sprites.front_default
+        spotlightPokemonOne.classList.add("pokePhotoOne")
         leftPhoto.src = data.sprites.other["official-artwork"].front_default
+
         // pokeName.insertAdjacentHTML("beforeend", "Name: " + data.forms["0"].name)
         // function chgback() {
         //   if (data.types[0].type.name == "grass") {
@@ -173,6 +175,7 @@ function renderSpritesTwo(data) {
         console.log(e.name)
         console.log(data)
         spotlightPokemonTwo.src = data.sprites.front_default
+        spotlightPokemonTwo.classList.add("pokePhotoTwo")
         rightPhoto.src = data.sprites.other["official-artwork"].front_default
         // pokeName.insertAdjacentHTML("beforeend", "Name: " + data.forms["0"].name)
         // function chgback() {
@@ -260,13 +263,18 @@ function resetTwo() {
   }
 
 function battle() {
-  if ((playerOneBattleCondition = 1) && (playerTwoBattleCondition = 1)) {
+  if ((playerOneBattleCondition == 1) && (playerTwoBattleCondition == 1)) {
     console.log(playerOneBattleCondition, playerTwoBattleCondition)
     battleIcon.src = "battle.png";
+    battleIcon.classList.add("battleCenter")
     }
   }
 
-  
+battleIcon.addEventListener("click", gottaGoFast) 
+
+function gottaGoFast() {
+  document.getElementById("pokeall").style.animation = "rotation 1s infinite linear";
+}
 
   // let spriteContainer = document.querySelectorAll(".pokemons");
   // console.log(spriteContainer[0])
