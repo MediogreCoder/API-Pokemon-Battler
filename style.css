@@ -125,13 +125,25 @@ p {
   font-weight: bold;
 }
 
-.spriteimgs {
+.spriteimgsOne {
   object-fit: cover;
   width: 75px;
   height: 75px;
 }
 
-.spriteimgs:hover {
+.spriteimgsOne:hover {
+  background-size: 0 3px, 100% 3px;
+  transform: scale(2);
+  transition-duration: 1s;
+}
+
+.spriteimgsTwo {
+  object-fit: cover;
+  width: 75px;
+  height: 75px;
+}
+
+.spriteimgsTwo:hover {
   background-size: 0 3px, 100% 3px;
   transform: scale(2);
   transition-duration: 1s;
