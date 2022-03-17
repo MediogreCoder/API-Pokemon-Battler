@@ -335,11 +335,15 @@ button:hover {
 
 .attacks {
   cursor: pointer;
-  width: 10%;
+  text-align: center;
+  width: 60%;
   display: none;
 }
 
 .p2:hover {
   transform: scale(1.5);
   transition-duration: 1.5s;
+}
+
+#p1health {
 }
