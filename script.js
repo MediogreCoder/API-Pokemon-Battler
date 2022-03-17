@@ -224,14 +224,23 @@ battleIcon.addEventListener("click", gottaGoFast)
   }
 
 
-p1PokeMoves.forEach(poke => {
-  poke.addEventListener("click", whichAttack) 
+p1PokeMoves.forEach(pickAttack1 => {
+  pickAttack1.addEventListener("click", p1whichAttack) 
 })
 
-function whichAttack() {
+function p1whichAttack() {
   for (let i = 0; i < 4; i++) {
     playerTwoHealth.value -= parseInt(p1PokeMoves[i].dataset.num)
-    console.log(p1PokeMoves[i].dataset.num)
+  }
+}
+
+p2PokeMoves.forEach(pickAttack2 => {
+  pickAttack2.addEventListener("click", p2whichAttack) 
+})
+
+function p2whichAttack() {
+  for (let i = 0; i < 4; i++) {
+    playerOneHealth.value -= parseInt(p2PokeMoves[i].dataset.num)
   }
 }
 
