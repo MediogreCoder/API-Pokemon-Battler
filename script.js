@@ -14,7 +14,7 @@ let leftInfo = document.querySelector(".leftbox");
 let pokeInfo = document.querySelector(".bottomrightbox");
 let leftPhoto = document.querySelector(".leftImage");
 let rightPhoto = document.querySelector(".rightImage");
-let battleIcon = document.querySelector("#centerIcon")
+let battleIcon = document.querySelector(".centerIcon")
 let playerOneBattleCondition = 0;
 let playerTwoBattleCondition = 0;
 console.log(bigPokeBall)
@@ -95,6 +95,12 @@ console.log(bigPokeBall)
 
 // --------------------------Working Code------------------------
 
+//Move Set Path : moves[0].move.name
+//Sprite front: sprites.front_default
+// full art: sprites.other["official-artwork"].front_default 
+
+
+
 function getPokemon(n) {
   for (let i = n; i <= n + 9 ; i++) {
     fetch(`https://pokeapi.co/api/v2/pokemon/${i}`)
@@ -126,13 +132,12 @@ function renderSpritesOne(data) {
   sprites.forEach((e) => {
     e.addEventListener("click", () => {
       if (data.id == e.name) {
-        console.log(data.id)
-        console.log(e.name)
-        console.log(data)
+        console.log(data.moves[0].move.url)
         spotlightPokemonOne.src = data.sprites.front_default
         spotlightPokemonOne.classList.add("pokePhotoOne")
-        leftPhoto.src = data.sprites.other["official-artwork"].front_default
-
+        leftPhoto.src = data.sprites.other["official-artwork"].front_default 
+        
+      
         // pokeName.insertAdjacentHTML("beforeend", "Name: " + data.forms["0"].name)
         // function chgback() {
         //   if (data.types[0].type.name == "grass") {
@@ -272,9 +277,39 @@ function battle() {
 
 battleIcon.addEventListener("click", gottaGoFast) 
 
-function gottaGoFast() {
-  document.getElementById("pokeall").style.animation = "rotation 1s infinite linear";
-}
+
+  function gottaGoFast() {
+    document.getElementById("backdrop").style.animation = "rotation 2s infinite linear";
+   
+    {
+        function prepareForBattle() {
+          pokemoves = document.querySelectorAll(".attacks")
+          
+        document.getElementById("backdrop").style.animation = "rotation 1000000000000000s infinite linear ";
+        document.getElementById("backdrop").style.bottom = "80px"
+        document.getElementById("pokeall").style.backgroundImage = "url(battlefield.png)";
+        document.getElementById("backdrop").style.backgroundImage = "url() ";
+        document.querySelector(".leftImage").src = " ";
+        document.querySelector(".rightImage").src = " ";
+        document.querySelector(".centerIcon").src = " ";
+          document.querySelector("#p1p").src = data.sprites.back_default;
+          
+        for (let i = 0; i <= 2; i++) {
+          pokemoves[i].style.display = "block";
+        }
+        toggleSidebar()
+      }
+      setTimeout(prepareForBattle, 2000);
+      // removeSlow()
+      // setTimeout(function(){ document.getElementById("backdrop").style.animation = "rotation 1000000000000000s infinite linear";}, 2000)
+    }
+  }
+
+// function removeSlow() {
+//   document.getElementById("backdrop").style.animation = "rotation 1000000000000000s infinite linear";
+// }
+
+
 
   // let spriteContainer = document.querySelectorAll(".pokemons");
   // console.log(spriteContainer[0])
@@ -311,3 +346,4 @@ function toggleSidebar() {
   document.getElementById("sidebar").classList.toggle('unhide');
   document.getElementById("sidebar2").classList.toggle('unhide');
 }
+

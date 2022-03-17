@@ -2,6 +2,15 @@
   margin: 0px;
   padding: 0px;
   font-family: sans-serif;
+  font-weight: bold;
+}
+
+.maincontainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
 }
 
 #sidebar {
@@ -17,10 +26,6 @@
 
 #sidebar.unhide {
   left: 0px;
-  box-shadow: 3px 3px 3px rgb(14, 14, 14);
-  -moz-box-shadow: 3px 3px 3px rgb(29, 28, 28);
-  -webkit-box-shadow: 3px 3px 3px rgb(18, 17, 17);
-  -khtml-box-shadow: 3px 3px 3px rgb(14, 13, 13);
 }
 
 #sidebar ul li {
@@ -62,10 +67,6 @@
 
 #sidebar2.unhide {
   right: 0px;
-  box-shadow: 3px 3px 3px rgb(14, 14, 14);
-  -moz-box-shadow: 3px 3px 3px rgb(29, 28, 28);
-  -webkit-box-shadow: 3px 3px 3px rgb(18, 17, 17);
-  -khtml-box-shadow: 3px 3px 3px rgb(14, 13, 13);
 }
 
 #sidebar2 ul li {
@@ -88,10 +89,6 @@
   background: #151719;
   margin: 5px 0px;
   border-radius: 10px;
-  box-shadow: 1px 1px 1px rgb(14, 14, 14);
-  -moz-box-shadow: 1px 1px 1px rgb(29, 28, 28);
-  -webkit-box-shadow: 1px 1px 1px rgb(18, 17, 17);
-  -khtml-box-shadow: 1px 1px 1px rgb(14, 13, 13);
 }
 
 .container {
@@ -103,22 +100,13 @@
 .maincontainer {
 }
 
-@keyframes rotation {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 p {
   text-align: center;
 }
 
 #logo-title {
-  right: 0px;
   padding-bottom: 80px;
+  text-align: center;
 }
 
 .pokelist {
@@ -152,66 +140,63 @@ p {
 li {
   display: flex;
   align-items: center;
-  font-style: none;
 }
 
 #backdrop {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
-
-#pokeall {
-  display: flex;
-  position: relative;
-  justify-content: center;
-  align-items: center;
   background-image: url("pokeballcrop.png");
   background-size: cover;
-  height: 500px;
-  width: 500px;
-  border-radius: 360%;
+  height: 600px;
+  width: 600px;
   animation: rotation 100s infinite linear;
-  border-radius: 1000px;
   transition: all 500ms linear;
 }
 
-#pokeMonOne {
+#pokeall {
+  background-repeat: no-repeat;
   display: flex;
-  justify-content: center;
+  flex-direction: row;
   align-items: center;
-  width: 200%;
-  height: 200%;
-  margin: 10%;
-  margin-top: 10%;
-  margin-bottom: 10%;
+  justify-content: center;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.leftbox {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.rightbox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#pokeMonOne {
+  z-index: 10;
 }
 
 #pokeMonTwo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 200%;
-  height: 200%;
-  margin: 10%;
-  margin-top: 10%;
-  margin-bottom: 10%;
+  z-index: 10;
 }
 
 img.pokePhotoOne {
-  display: flex;
-  position: relative;
-  right: -100px;
   height: 200px;
   width: 200px;
   -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
 }
 img.pokePhotoTwo {
-  display: flex;
-  position: relative;
-  left: -100px;
   height: 200px;
   width: 200px;
 }
@@ -255,7 +240,6 @@ button:hover {
 .leftbox {
   display: flex;
   flex-direction: column;
-
   align-items: center;
   justify-content: space-around;
 }
@@ -263,7 +247,6 @@ button:hover {
 .rightbox {
   display: flex;
   flex-direction: column;
-
   align-items: center;
   justify-content: space-around;
 }
@@ -308,11 +291,6 @@ button:hover {
   top: -80px;
 }
 
-p {
-  font-size: 20px;
-  font-weight: bold;
-}
-
 .p1title {
   position: relative;
   bottom: -170px;
@@ -331,14 +309,37 @@ p {
   -webkit-text-stroke-color: black;
 }
 
-.battleCenter {
+#centerIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  object-fit: fill;
+}
+
+.centerIcon {
   height: 250px;
-  width: 250px;
   z-index: 100;
   transition: all 500ms linear;
 }
 
-.battleCenter:hover {
+.centerIcon:hover {
+  transform: scale(1.5);
+  transition-duration: 1.5s;
+}
+
+.p1:hover {
+  transform: scale(1.5);
+  transition-duration: 1.5s;
+}
+
+.attacks {
+  cursor: pointer;
+  width: 10%;
+  display: none;
+}
+
+.p2:hover {
   transform: scale(1.5);
   transition-duration: 1.5s;
 }
