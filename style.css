@@ -345,5 +345,10 @@ button:hover {
   transition-duration: 1.5s;
 }
 
-#p1health {
+#p1Health {
+  display: none;
+}
+
+#p2Health {
+  display: none;
 }

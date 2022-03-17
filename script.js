@@ -210,6 +210,9 @@ battleIcon.addEventListener("click", gottaGoFast)
         document.querySelector(".leftImage").src = " ";
         document.querySelector(".rightImage").src = " ";
           document.querySelector(".centerIcon").src = " ";
+          playerOneHealth.style.display = "block";
+          playerTwoHealth.style.display = "block";
+          
           toggleSidebar()
           {
             let pokemoves = document.querySelectorAll(".attacks");
