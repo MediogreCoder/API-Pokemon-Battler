@@ -20,11 +20,11 @@ let playerOneHealth = document.getElementById("p1Health");
 let playerTwoHealth = document.getElementById("p2Health");
 let playerOneBattleCondition = 0;
 let playerTwoBattleCondition = 0;
-let deadCheckoOne = 0;
+let deadCheckOne = 0;
 let deadCheckTwo = 0;
 let chosenNameOne = "";
 let chosenNameTwo = "";
-
+console.log(p1PokeMoves)
 
 //Pokemon Health = data.stats[0].base_stat
 
@@ -64,6 +64,7 @@ function renderSpritesOne(data) {
         chosenNameOne = data.name;
         spotlightPokemonOne.src = data.sprites.front_default;
         spotlightPokemonOne.classList.add("pokePhotoOne");
+        spotlightPokemonOne.style.display = "flex"
         leftPhoto.src = data.sprites.other["official-artwork"].front_default;
         playerOneHealth.value = (10 * (data.stats[0].base_stat));
         playerOneHealth.max = (10 * (data.stats[0].base_stat));
@@ -109,6 +110,7 @@ function renderSpritesTwo(data) {
         chosenNameTwo = data.name;
         spotlightPokemonTwo.src = data.sprites.front_default
         spotlightPokemonTwo.classList.add("pokePhotoTwo")
+        spotlightPokemonTwo.style.display = "flex"
         rightPhoto.src = data.sprites.other["official-artwork"].front_default
         playerTwoHealth.value = (10 * (data.stats[0].base_stat))
         playerTwoHealth.max = (10 * (data.stats[0].base_stat))
@@ -214,7 +216,6 @@ battleIcon.addEventListener("click", gottaGoFast)
    
     {
         function prepareForBattle() {
-        
         document.getElementById("backdrop").style.animation = "rotation 1000000000000000s infinite linear ";
         document.getElementById("backdrop").style.bottom = "80px"
         document.getElementById("pokeall").style.backgroundImage = "url()";
@@ -240,49 +241,93 @@ battleIcon.addEventListener("click", gottaGoFast)
     }
   }
 
+// working attack code-------------------------------------------------------------------
+// p1PokeMoves.forEach(pickAttack1 => {
+//   pickAttack1.addEventListener("click", p1whichAttack) 
+// })
 
-p1PokeMoves.forEach(pickAttack1 => {
-  pickAttack1.addEventListener("click", p1whichAttack) 
-})
+// function p1whichAttack() {
+//   for (let i = 0; i < 4; i++) {
+//     if (i == p1PokeMoves[i]) {
+//       playerTwoHealth.value -= parseInt(p1PokeMoves[i].dataset.num)
+//       console.log(playerTwoHealth.value)
+//     }
+//   }
+// }
 
-function p1whichAttack() {
-  for (let i = 0; i < 4; i++) {
-    // console.log(p1PokeMoves[i].dataset.num)
-    playerTwoHealth.value -= parseInt(p1PokeMoves[i].dataset.num)
-      console.log(playerTwoHealth.value)
-     
-    
-  }
-}
-
-p2PokeMoves.forEach(pickAttack2 => {
+// p2PokeMoves.forEach(pickAttack2 => {
   
-  pickAttack2.addEventListener("click", p2whichAttack) 
-})
+//   pickAttack2.addEventListener("click", p2whichAttack) 
+// })
 
-function p2whichAttack() {
-  for (let i = 0; i < 4; i++) {
-    // console.log(p2PokeMoves[i].dataset.num)
-    playerOneHealth.value -= parseInt(p2PokeMoves[i].dataset.num)
+// function p2whichAttack() {
+//   for (let i = 0; i < 4; i++) {
+//     // console.log(p2PokeMoves[i].dataset.num)
+//     playerOneHealth.value -= parseInt(p2PokeMoves[i].dataset.num)
     
-      console.log(playerOneHealth.value)
-      deadCheckoOne = playerOneHealth.value
-      p1CheckDead()
+//       console.log(playerOneHealth.value)
+//       deadCheckoOne = playerOneHealth.value
+//       p1CheckDead()
     
-  }
+//   }
+// }
+
+// function p2CheckDead() {
+//   if (deadCheckoTwo == 0) {
+//     console.log(deadCheckTwo)
+//     console.log("he dead")
+//   }
+    
+// }
+
+// function p2CheckDead() {
+//   if (deadCheckTwo == 0) {
+//     console.log("he dead")
+//   }
+// }
+// working attack code-------------------------------------------------------------------
+
+for(var i = 0; i < p1PokeMoves.length; i++) {
+  p1PokeMoves[i].addEventListener("click", doDamagetoP2(i));
 }
 
-function p2CheckDead() {
-  if (deadCheckoTwo == 0) {
-    console.log(deadCheckTwo)
-    console.log("he dead")
-  }
+function doDamagetoP2(i) {
+  return function () {
+    playerTwoHealth.value -= parseInt(p1PokeMoves[i].dataset.num);
+    deadCheckTwo = playerTwoHealth.value;
+    console.log(playerTwoHealth.value);
+    p2CheckDead();
+};
+}
+
+for(var i = 0; i < p2PokeMoves.length; i++) {
+  p2PokeMoves[i].addEventListener("click", doDamagetoP1(i));
+}
+
+function doDamagetoP1(i) {
+  return function () {
+    playerOneHealth.value -= parseInt(p2PokeMoves[i].dataset.num);
+    deadCheckoOne = playerOneHealth.value;
+    console.log(playerOneHealth.value);
+    p1CheckDead();
     
+};
 }
 
 function p2CheckDead() {
   if (deadCheckTwo == 0) {
-    console.log("he dead")
+    spotlightPokemonTwo.classList.add("p2Dead")
+    console.log("p2 dead")
+    document.querySelector("#newGame").style.display = "flex"
+    
+  }
+}
+
+function p1CheckDead() {
+  if (deadCheckOne == 0) {
+    spotlightPokemonOne.classList.add("p1Dead")
+    console.log("p1 dead")
+    document.querySelector("#newGame").style.display = "flex"
   }
 }
 
