@@ -20,12 +20,12 @@ let playerOneHealth = document.getElementById("p1Health");
 let playerTwoHealth = document.getElementById("p2Health");
 let playerOneBattleCondition = 0;
 let playerTwoBattleCondition = 0;
-console.log(playerOneHealth.value);
-//console.log(p1PokeMoves)
+
+//Pokemon Health = data.stats[0].base_stat
 
 
 function getPokemon(n) {
-  for (let i = n; i <= n + 9 ; i++) {
+  for (let i = n; i <= n + 8 ; i++) {
     fetch(`https://pokeapi.co/api/v2/pokemon/${i}`)
       .then(res => res.json())
       .then(result => {
@@ -55,14 +55,15 @@ function renderSpritesOne(data) {
   sprites.forEach((e) => {
     e.addEventListener("click", () => {
       if (data.id == e.name) {
-        // //console.log(data.moves[0].move.name)
+        console.log(data.stats[0].base_stat)
         spotlightPokemonOne.src = data.sprites.front_default
         spotlightPokemonOne.classList.add("pokePhotoOne")
         leftPhoto.src = data.sprites.other["official-artwork"].front_default 
+        playerOneHealth.value = (10 * (data.stats[0].base_stat))
         {
           for (let i = 0; i < 4; i++) {
-            // //console.log(data.moves[i].move.url)
-            // //console.log(p1PokeMoves[i].innerText)
+            // console.log(data.stats)
+            // console.log(p1PokeMoves[i].innerText)
             p1PokeMoves[i].innerText = data.moves[i].move.name;
               fetch(data.moves[i].move.url)
               .then(res => res.json())
@@ -102,6 +103,8 @@ function renderSpritesTwo(data) {
         spotlightPokemonTwo.src = data.sprites.front_default
         spotlightPokemonTwo.classList.add("pokePhotoTwo")
         rightPhoto.src = data.sprites.other["official-artwork"].front_default
+        playerTwoHealth.value = (10 * (data.stats[0].base_stat))
+      
         {
           for (let i = 0; i < 4; i++) {
             //console.log(data.moves[i].move.name)
@@ -116,6 +119,7 @@ function renderSpritesTwo(data) {
                })
           }
         }
+               
         battleCheckTwo()
         battle() 
       }
@@ -205,19 +209,19 @@ battleIcon.addEventListener("click", gottaGoFast)
         
         document.getElementById("backdrop").style.animation = "rotation 1000000000000000s infinite linear ";
         document.getElementById("backdrop").style.bottom = "80px"
-        document.getElementById("pokeall").style.backgroundImage = "url(battlefield.png)";
+        document.getElementById("pokeall").style.backgroundImage = "url()";
         document.getElementById("backdrop").style.backgroundImage = "url() ";
         document.querySelector(".leftImage").src = " ";
         document.querySelector(".rightImage").src = " ";
-          document.querySelector(".centerIcon").src = " ";
-          playerOneHealth.style.display = "block";
-          playerTwoHealth.style.display = "block";
+        document.querySelector(".centerIcon").src = " ";
+        playerOneHealth.style.display = "block";
+        playerTwoHealth.style.display = "block";
           
           toggleSidebar()
           {
             let pokemoves = document.querySelectorAll(".attacks");
               for (let i = 0; i <= 2; i++) {
-                pokemoves[i].style.display = "block";
+                pokemoves[i].style.display = "flex";
               }
           }
         

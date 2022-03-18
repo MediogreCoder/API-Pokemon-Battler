@@ -334,10 +334,23 @@ button:hover {
 }
 
 .attacks {
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
   cursor: pointer;
   text-align: center;
-  width: 60%;
   display: none;
+  transition-duration: 1.5s;
+}
+
+p {
+  border: 5px solid black;
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 20px;
 }
 
 .p2:hover {
@@ -347,8 +360,22 @@ button:hover {
 
 #p1Health {
   display: none;
+  transition-duration: 1.5s;
 }
 
 #p2Health {
   display: none;
+  transition-duration: 1.5s;
+}
+
+.chosenOne {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.chosenTwo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
