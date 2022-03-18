@@ -1,8 +1,8 @@
 let sideBarPokes = document.querySelectorAll(".spriteimgs");
 let bigPokeBall = document.getElementById("pokeall");
 let sidePokename = document.querySelectorAll(".pokeList");
-let spotlightPokemonOne = document.querySelector("#p1p");
-let spotlightPokemonTwo = document.querySelector("#p2p");
+let spotlightPokemonOne = document.querySelector(".p1p");
+let spotlightPokemonTwo = document.querySelector(".p2p");
 let spriteContainerOne = document.querySelectorAll(".pokemonsOne");
 let spriteContainerTwo = document.querySelectorAll(".pokemonsTwo");
 let genoneButton = document.getElementById("genone");
@@ -63,7 +63,7 @@ function renderSpritesOne(data) {
         console.log(data.name)
         chosenNameOne = data.name;
         spotlightPokemonOne.src = data.sprites.front_default;
-        spotlightPokemonOne.classList.add("pokePhotoOne");
+
         spotlightPokemonOne.style.display = "flex"
         leftPhoto.src = data.sprites.other["official-artwork"].front_default;
         playerOneHealth.value = (10 * (data.stats[0].base_stat));
@@ -109,7 +109,6 @@ function renderSpritesTwo(data) {
         //console.log(data)
         chosenNameTwo = data.name;
         spotlightPokemonTwo.src = data.sprites.front_default
-        spotlightPokemonTwo.classList.add("pokePhotoTwo")
         spotlightPokemonTwo.style.display = "flex"
         rightPhoto.src = data.sprites.other["official-artwork"].front_default
         playerTwoHealth.value = (10 * (data.stats[0].base_stat))
@@ -336,7 +335,8 @@ function p2CheckDead() {
 
 function p1CheckDead() {
   if (deadCheckOne == 0) {
-    spotlightPokemonOne.classList.add("p1Dead")
+    spotlightPokemonOne.className = "p1Dead";
+    spotlightPokemonOne.style.transform = "none";
     document.querySelector("#newGame").style.display = "flex"
   }
 }
