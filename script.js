@@ -20,6 +20,9 @@ let playerOneHealth = document.getElementById("p1Health");
 let playerTwoHealth = document.getElementById("p2Health");
 let playerOneBattleCondition = 0;
 let playerTwoBattleCondition = 0;
+let chosenNameOne = "";
+let chosenNameTwo = "";
+
 
 //Pokemon Health = data.stats[0].base_stat
 
@@ -55,11 +58,13 @@ function renderSpritesOne(data) {
   sprites.forEach((e) => {
     e.addEventListener("click", () => {
       if (data.id == e.name) {
-        console.log(data.stats[0].base_stat)
-        spotlightPokemonOne.src = data.sprites.front_default
-        spotlightPokemonOne.classList.add("pokePhotoOne")
-        leftPhoto.src = data.sprites.other["official-artwork"].front_default 
-        playerOneHealth.value = (10 * (data.stats[0].base_stat))
+        console.log(data.name)
+        chosenNameOne = data.name;
+        spotlightPokemonOne.src = data.sprites.front_default;
+        spotlightPokemonOne.classList.add("pokePhotoOne");
+        leftPhoto.src = data.sprites.other["official-artwork"].front_default;
+        playerOneHealth.value = (10 * (data.stats[0].base_stat));
+        playerOneHealth.max = (10 * (data.stats[0].base_stat));
         {
           for (let i = 0; i < 4; i++) {
             // console.log(data.stats)
@@ -76,7 +81,6 @@ function renderSpritesOne(data) {
         battleCheckOne()
         battle() 
       }
-     
     })
   })
 }
@@ -100,10 +104,12 @@ function renderSpritesTwo(data) {
         //console.log(data.id)
         //console.log(e.name)
         //console.log(data)
+        chosenNameTwo = data.name;
         spotlightPokemonTwo.src = data.sprites.front_default
         spotlightPokemonTwo.classList.add("pokePhotoTwo")
         rightPhoto.src = data.sprites.other["official-artwork"].front_default
         playerTwoHealth.value = (10 * (data.stats[0].base_stat))
+        playerTwoHealth.max = (10 * (data.stats[0].base_stat))
       
         {
           for (let i = 0; i < 4; i++) {
@@ -214,6 +220,8 @@ battleIcon.addEventListener("click", gottaGoFast)
         document.querySelector(".leftImage").src = " ";
         document.querySelector(".rightImage").src = " ";
         document.querySelector(".centerIcon").src = " ";
+        document.querySelector(".p1title").innerText = chosenNameOne;
+        document.querySelector(".p2title").innerText = chosenNameTwo;  
         playerOneHealth.style.display = "block";
         playerTwoHealth.style.display = "block";
           
@@ -237,16 +245,19 @@ p1PokeMoves.forEach(pickAttack1 => {
 
 function p1whichAttack() {
   for (let i = 0; i < 4; i++) {
+    console.log(p1PokeMoves[i].dataset.num)
     playerTwoHealth.value -= parseInt(p1PokeMoves[i].dataset.num)
   }
 }
 
 p2PokeMoves.forEach(pickAttack2 => {
+  
   pickAttack2.addEventListener("click", p2whichAttack) 
 })
 
 function p2whichAttack() {
   for (let i = 0; i < 4; i++) {
+    console.log(p2PokeMoves[i].dataset.num)
     playerOneHealth.value -= parseInt(p2PokeMoves[i].dataset.num)
   }
 }
