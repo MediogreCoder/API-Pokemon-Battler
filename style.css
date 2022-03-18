@@ -201,6 +201,18 @@ img.pokePhotoTwo {
   width: 200px;
 }
 
+.p1Dead {
+  transform: rotate(-90deg);
+  opacity: 0.4;
+  filter: alpha(opacity=80);
+}
+
+.p2Dead {
+  transform: rotate(90deg);
+  opacity: 0.4;
+  filter: alpha(opacity=80);
+}
+
 body {
   font-family: Courier;
   background-image: url("z7_wYb9-YSvt0pDJlDIu8iuK_aWdqZPg0wvrGdwNvBw.png");

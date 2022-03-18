@@ -20,6 +20,8 @@ let playerOneHealth = document.getElementById("p1Health");
 let playerTwoHealth = document.getElementById("p2Health");
 let playerOneBattleCondition = 0;
 let playerTwoBattleCondition = 0;
+let deadCheckoOne = 0;
+let deadCheckTwo = 0;
 let chosenNameOne = "";
 let chosenNameTwo = "";
 
@@ -245,8 +247,11 @@ p1PokeMoves.forEach(pickAttack1 => {
 
 function p1whichAttack() {
   for (let i = 0; i < 4; i++) {
-    console.log(p1PokeMoves[i].dataset.num)
+    // console.log(p1PokeMoves[i].dataset.num)
     playerTwoHealth.value -= parseInt(p1PokeMoves[i].dataset.num)
+      console.log(playerTwoHealth.value)
+     
+    
   }
 }
 
@@ -257,8 +262,27 @@ p2PokeMoves.forEach(pickAttack2 => {
 
 function p2whichAttack() {
   for (let i = 0; i < 4; i++) {
-    console.log(p2PokeMoves[i].dataset.num)
+    // console.log(p2PokeMoves[i].dataset.num)
     playerOneHealth.value -= parseInt(p2PokeMoves[i].dataset.num)
+    
+      console.log(playerOneHealth.value)
+      deadCheckoOne = playerOneHealth.value
+      p1CheckDead()
+    
+  }
+}
+
+function p2CheckDead() {
+  if (deadCheckoTwo == 0) {
+    console.log(deadCheckTwo)
+    console.log("he dead")
+  }
+    
+}
+
+function p2CheckDead() {
+  if (deadCheckTwo == 0) {
+    console.log("he dead")
   }
 }
 
