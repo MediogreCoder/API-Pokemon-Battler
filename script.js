@@ -295,23 +295,34 @@ function doDamagetoP2(i) {
   return function () {
     playerTwoHealth.value -= parseInt(p1PokeMoves[i].dataset.num);
     deadCheckTwo = playerTwoHealth.value;
-    console.log(playerTwoHealth.value);
     p2CheckDead();
 };
 }
 
-for(var i = 0; i < p2PokeMoves.length; i++) {
+// for(var i = 0; i < p2PokeMoves.length; i++) {
+//   p2PokeMoves[i].addEventListener("click", doDamagetoP1(i));
+// }
+
+// function doDamagetoP1(i) {
+//   return function () {
+//     playerOneHealth.value -= parseInt(p2PokeMoves[i].dataset.num);
+//     deadCheckoOne = playerOneHealth.value;
+//     console.log(playerOneHealth.value);
+//     p1CheckDead();
+    
+// };
+// }
+
+for (let i = 0; i < p2PokeMoves.length; i++) {
   p2PokeMoves[i].addEventListener("click", doDamagetoP1(i));
 }
 
 function doDamagetoP1(i) {
   return function () {
     playerOneHealth.value -= parseInt(p2PokeMoves[i].dataset.num);
-    deadCheckoOne = playerOneHealth.value;
-    console.log(playerOneHealth.value);
+    deadCheckOne = playerOneHealth.value;
     p1CheckDead();
-    
-};
+  }
 }
 
 function p2CheckDead() {
@@ -326,7 +337,6 @@ function p2CheckDead() {
 function p1CheckDead() {
   if (deadCheckOne == 0) {
     spotlightPokemonOne.classList.add("p1Dead")
-    console.log("p1 dead")
     document.querySelector("#newGame").style.display = "flex"
   }
 }
