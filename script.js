@@ -336,7 +336,6 @@ function p2CheckDead() {
 function p1CheckDead() {
   if (deadCheckOne == 0) {
     spotlightPokemonOne.className = "p1Dead";
-    spotlightPokemonOne.style.transform = "none";
     document.querySelector("#newGame").style.display = "flex"
   }
 }
