@@ -215,23 +215,6 @@ li {
 .p2Dead {
   transform: rotate(90deg);
   opacity: 0.7;
-  bottom: 15%;
-  position: absolute;
-
-  -webkit-animation-name: run;
-  -webkit-animation-duration: 5s;
-}
-
-@-webkit-keyframes run {
-  0% {
-    top: 0;
-  }
-  50% {
-    bottom: 100%;
-  }
-  100% {
-    bottom: 20%;
-  }
 }
 
 body {
