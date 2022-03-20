@@ -132,7 +132,6 @@ function renderSpritesTwo(data) {
     })
   })
 }
-
 //event listeners for the 4 buttons to change burger menu pokemin between generations, hard coded for the starters
 //runs original fetch after resetting(deletes current selection)
 
@@ -158,8 +157,6 @@ randoButton.addEventListener("click", function () {
   resetOne()
   resetTwo()
   getPokemon(randomNumber(1, 881));
-
-
 })
 
 //random number generator for random buttom, can be purposed for future random needs
