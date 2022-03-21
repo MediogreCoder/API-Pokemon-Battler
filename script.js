@@ -212,9 +212,9 @@ battleIcon.addEventListener("click", gottaGoFast)
         document.getElementById("backdrop").style.bottom = "80px"
         document.getElementById("pokeall").style.backgroundImage = "url()";
         document.getElementById("backdrop").style.backgroundImage = "url() ";
-        document.querySelector(".leftImage").src = " ";
-        document.querySelector(".rightImage").src = " ";
-        document.querySelector(".centerIcon").src = " ";
+        document.querySelector(".leftImage").style.display = "none";  
+        document.querySelector(".rightImage").style.display = "none";
+        document.querySelector(".centerIcon").style.display = "none";
         document.querySelector(".p1title").innerText = chosenNameOne;
         document.querySelector(".p2title").innerText = chosenNameTwo;  
         playerOneHealth.style.display = "block";
