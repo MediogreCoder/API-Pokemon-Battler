@@ -27,7 +27,6 @@ This project is a browser based game revolving around a childhood classic of Pok
 
 1. Not Mobile compatible
 2. pokemon dying animation shifts boxes
-3. CSS and animations not compatible with Safari or FireFox
 
 ## Contributor
 
