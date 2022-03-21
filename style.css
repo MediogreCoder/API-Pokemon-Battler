@@ -185,10 +185,12 @@ li {
 
 #pokeMonOne {
   z-index: 10;
+  display: flex;
 }
 
 #pokeMonTwo {
   z-index: 10;
+  display: flex;
 }
 
 .p1p {
