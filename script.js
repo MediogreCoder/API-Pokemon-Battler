@@ -283,3 +283,4 @@ function toggleSidebar() {
   document.getElementById("sidebar2").classList.toggle('unhide');
 }
 
+window.onload = toggleSidebar;
