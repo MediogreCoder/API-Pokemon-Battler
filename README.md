@@ -1,4 +1,4 @@
-# Project 4 - Pokemon Battler Game
+# Pokemon Battler Game
 
 A pokemon game developed using the Pokemon API(https://pokeapi.co/).
 https://mediogrecoder.github.io/API-Pokemon-Battler/
